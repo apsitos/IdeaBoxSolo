@@ -3,22 +3,30 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <title>Idea Box Alone</title>
   </head>
   <body>
-    <h1>idea<span>box</span></h1>
+
+    <header>
+    <h1>idea<span class="box">box</span></h1>
     <input type="text" name="Title" class="title" placeholder="Title">
-    <input type="text" name="Body" class="idea" placeholder="Body">
-    <input type="button" name="Save" class="save" placeholder="save">
+    <textarea type="text" name="Body" class="idea" placeholder="Body"></textarea>
+    <button type="button" name="save" class="save-button">save</button>
+    </header>
+
     <ul>
-      <li id=""><h2 class="entered-title">Title</h2>
-        <button type="button" class="delete" name="delete" img src="ideabox-icons/delete.svg"></button>
-        <h3 class="entered-idea"></h3>
-        <button type="button" class="upvote" name="upvote" img src="ideabox-icons/upvote.svg"></button>
-        <button type="button" class="downvote" name="downvote" img src="ideabox-icons/downvote.svg"></button>
+      <li id="${id}" class="new-idea"><h2 class="entered-title">Title</h2>
+        <button type="button" class="delete" name="delete" img src="images/delete.svg"></button>
+        <h3 class="entered-idea">Body</h3>
+        <button type="button" class="upvote" name="upvote" img src="images/upvote.svg"></button>
+        <button type="button" class="downvote" name="downvote" img src="images/downvote.svg"></button>
         <p class="quality">quality: <span class="user-quality">${}</span></p>
       </li>
     </ul>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="index.js"></script>
 </html>
