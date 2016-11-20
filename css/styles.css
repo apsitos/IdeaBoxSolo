@@ -1,0 +1,85 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 35pt;
+  font-weight: 700;
+  color: #00A79D;
+  margin: 20pt;
+}
+
+header {
+  background-color: #E5F3F2;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  color:#6D6E71;
+}
+
+input, textarea, .save-button {
+  font-size: 15pt;
+  margin: 7px;
+  outline: none;
+  width: 40%;
+}
+
+input, textarea {
+  border: 1px solid #D1D3D4;
+}
+
+textarea {
+  height: 32px;
+  overflow: auto;
+  resize: none;
+}
+
+ul {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-idea {
+  border-bottom: 1px solid #D1D3D4;
+  margin-top: 15px;
+  padding-bottom: 20px;
+  width: 40%;
+}
+
+h2 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  color:#6D6E71;
+
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #939598;
+}
+
+p {
+
+}
+
+.save-button {
+  background-color: #00A79D;
+  border: none;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.save-button:hover {
+  background-color: #045D55;
+}
+
+button:focus {
+  outline: none;
+}
