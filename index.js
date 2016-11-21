@@ -24,6 +24,20 @@ $('ul').on('click', '.delete', function() {
   $(this).closest('li').remove();
 })
 
+$('ul').on('click', '.upvote', function() {
+  var quality = $(this).closest('li').find('.user-quality').text();
+  var newQuality = upVote(quality);
+  var id = this.closest('li').id;
+  for (var i = 0; i < ideaArray.length; i++) {
+    if (ideaArray[i].id == id) {
+      ideaArray[i].quality = newQuality;
+      ideaArray.splice(i, 1, ideaArray[i]);
+    };
+  };
+  $(this).closest('li').find('.user-quality').text(newQuality);
+  saveToStorage();
+})
+
 function CreateIdea($title, $body, id, quality) {
   this.id = id || Date.now();
   this.title = $title;
@@ -69,7 +83,7 @@ function removeIdea(id, index) {
   };
 };
 
-function upVote() {
+function upVote(quality) {
   switch(quality) {
     case 'swill':
       return 'plausible';
@@ -80,7 +94,7 @@ function upVote() {
   };
 };
 
-function downVote() {
+function downVote(quality) {
   switch(quality) {
     case 'genius':
       return 'plausible';
