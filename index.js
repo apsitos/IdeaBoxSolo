@@ -52,6 +52,12 @@ $('ul').on('click', '.downvote', function() {
   saveToStorage();
 });
 
+$('ul').closest('li').on('focus', '.entered-title', function() {
+  var id = this.closest('li').id;
+  var newTitle = $(this).text();
+  editTitle(id, newTitle);
+});
+
 function CreateIdea($title, $body, id, quality) {
   this.id = id || Date.now();
   this.title = $title;
@@ -60,9 +66,9 @@ function CreateIdea($title, $body, id, quality) {
 }
 
 function displayIdea(titleInput, bodyInput, id, quality) {
-  $('.idea-list').prepend(`<li id="${id}" class="new-idea"><h2 class="entered-title">${titleInput}</h2>
+  $('.idea-list').prepend(`<li id="${id}" class="new-idea"><h2 class="entered-title" contenteditable="true">${titleInput}</h2>
     <button type="button" class="delete" name="delete" img src="../images/delete.svg"></button>
-    <h3 class="entered-idea">${bodyInput}</h3>
+    <h3 class="entered-idea" contenteditable="true">${bodyInput}</h3>
     <button type="button" class="upvote" name="upvote" img src="../images/upvote.svg"></button>
     <button type="button" class="downvote" name="downvote" img src="../images/downvote.svg"></button>
     <p class="quality">quality: <span class="user-quality">${quality}</span></p>
@@ -116,5 +122,15 @@ function downVote(quality) {
       return 'swill';
     case 'swill':
       return 'swill';
+  };
+};
+
+function editTitle(id, newTitle) {
+  for (var i = 0; i < ideaArray.length; i++) {
+    if (ideaArray[i].id === parseInt(id)) {
+      ideaArray[i].title = newTitle;
+      ideaArray.splice(i, 1, ideaArray[i]);
+    };
+    saveToStorage();
   };
 };
