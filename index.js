@@ -36,7 +36,21 @@ $('ul').on('click', '.upvote', function() {
   };
   $(this).closest('li').find('.user-quality').text(newQuality);
   saveToStorage();
-})
+});
+
+$('ul').on('click', '.downvote', function() {
+  var quality = $(this).closest('li').find('.user-quality').text();
+  var newQuality = downVote(quality);
+  var id = this.closest('li').id;
+  for (var i = 0; i < ideaArray.length; i++) {
+    if (ideaArray[i].id == id) {
+      ideaArray[i].quality = newQuality;
+      ideaArray.splice(i, 1, ideaArray[i]);
+    };
+  };
+  $(this).closest('li').find('.user-quality').text(newQuality);
+  saveToStorage();
+});
 
 function CreateIdea($title, $body, id, quality) {
   this.id = id || Date.now();
