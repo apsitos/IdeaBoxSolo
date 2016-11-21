@@ -36,6 +36,13 @@ function displayIdea(titleInput, bodyInput, id, quality) {
   </li>`)
 };
 
+$('ul').on('click', '.delete', function() {
+  var id = this.closest('li').id;
+  removeIdea(id);
+  $(this).closest('li').remove();
+})
+
+
 function saveToStorage() {
   localStorage.setItem('newIdea', JSON.stringify(ideaArray));
 };
@@ -54,3 +61,12 @@ function clearForm() {
   var titleInput = $title.val('');
   var bodyInput = $body.val('');
 }
+
+function removeIdea(id, index) {
+  for (var i = 0; i < ideaArray.length; i++) {
+    if (ideaArray[i].id === parseInt(id)) {
+      ideaArray.splice(i, 1);
+    };
+    saveToStorage();
+  };
+};
