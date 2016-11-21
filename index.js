@@ -18,6 +18,11 @@ $('.save-button').on('click', function() {
   clearForm();
 });
 
+$('ul').on('click', '.delete', function() {
+  var id = this.closest('li').id;
+  removeIdea(id);
+  $(this).closest('li').remove();
+})
 
 function CreateIdea($title, $body, id, quality) {
   this.id = id || Date.now();
@@ -35,13 +40,6 @@ function displayIdea(titleInput, bodyInput, id, quality) {
     <p class="quality">quality: <span class="user-quality">${quality}</span></p>
   </li>`)
 };
-
-$('ul').on('click', '.delete', function() {
-  var id = this.closest('li').id;
-  removeIdea(id);
-  $(this).closest('li').remove();
-})
-
 
 function saveToStorage() {
   localStorage.setItem('newIdea', JSON.stringify(ideaArray));
@@ -68,5 +66,27 @@ function removeIdea(id, index) {
       ideaArray.splice(i, 1);
     };
     saveToStorage();
+  };
+};
+
+function upVote() {
+  switch(quality) {
+    case 'swill':
+      return 'plausible';
+    case 'plausible':
+      return 'genius';
+    case 'genius':
+      return 'genius';
+  };
+};
+
+function downVote() {
+  switch(quality) {
+    case 'genius':
+      return 'plausible';
+    case 'plausible':
+      return 'swill';
+    case 'swill':
+      return 'swill';
   };
 };
