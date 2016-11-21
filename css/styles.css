@@ -60,6 +60,7 @@ h2 {
   font-size: 18pt;
   height: inherit;
   line-height: inherit;
+  outline: none;
 }
 
 h3 {
@@ -70,6 +71,10 @@ h3 {
   height: inherit;
   margin-top: 10px;
   outline: none;
+}
+
+h2:focus, h3:focus {
+  text-decoration: underline;
 }
 
 p {

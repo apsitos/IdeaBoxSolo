@@ -64,6 +64,8 @@ $('ul').on('blur', '.entered-title', function(id, newTitle) {
   };
 });
 
+$('ul').on('focus', '.entered-idea').css("text-decoration", "underline #00A79D");
+
 $('ul').on('blur', '.entered-idea', function(id, newBody) {
   var id = this.closest('li').id;
   var newBody = $(this).text();
