@@ -52,10 +52,28 @@ $('ul').on('click', '.downvote', function() {
   saveToStorage();
 });
 
-$('ul').closest('li').on('focus', '.entered-title', function() {
+$('ul').on('blur', '.entered-title', function(id, newTitle) {
   var id = this.closest('li').id;
   var newTitle = $(this).text();
-  editTitle(id, newTitle);
+  for (var i = 0; i < ideaArray.length; i++) {
+    if (ideaArray[i].id === parseInt(id)) {
+      ideaArray[i].title = newTitle;
+      ideaArray.splice(i, 1, ideaArray[i]);
+    };
+    saveToStorage();
+  };
+});
+
+$('ul').on('blur', '.entered-idea', function(id, newBody) {
+  var id = this.closest('li').id;
+  var newBody = $(this).text();
+  for (var i = 0; i < ideaArray.length; i++) {
+    if (ideaArray[i].id === parseInt(id)) {
+      ideaArray[i].body = newBody;
+      ideaArray.splice(i, 1, ideaArray[i]);
+    };
+    saveToStorage();
+  };
 });
 
 function CreateIdea($title, $body, id, quality) {
@@ -122,15 +140,5 @@ function downVote(quality) {
       return 'swill';
     case 'swill':
       return 'swill';
-  };
-};
-
-function editTitle(id, newTitle) {
-  for (var i = 0; i < ideaArray.length; i++) {
-    if (ideaArray[i].id === parseInt(id)) {
-      ideaArray[i].title = newTitle;
-      ideaArray.splice(i, 1, ideaArray[i]);
-    };
-    saveToStorage();
   };
 };
