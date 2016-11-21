@@ -56,20 +56,27 @@ h2 {
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
   color:#6D6E71;
-
+  display: inline-block;
+  font-size: 18pt;
+  height: inherit;
+  line-height: inherit;
 }
 
 h3 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: #939598;
+  font-size: 12pt;
+  height: inherit;
+  margin-top: 10px;
+  outline: none;
 }
 
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: #939598;
-
+  display: inline-block;
 }
 
 .save-button {
@@ -85,4 +92,45 @@ p {
 
 button:focus {
   outline: none;
+}
+
+.delete {
+  background-image: url('../images/delete.svg');
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  float: right;
+}
+
+.delete:hover {
+  background-image: url('../images/delete-hover.svg');
+}
+
+.upvote {
+  background-image: url('../images/upvote.svg');
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  margin: 20px 10px 5px 0;
+}
+
+.upvote:hover {
+  background-image: url('../images/upvote-hover.svg');
+}
+
+.downvote {
+  background-image: url('../images/downvote.svg');
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.downvote:hover {
+  background-image: url('../images/downvote-hover.svg');
 }
