@@ -149,9 +149,17 @@ function downVote(quality) {
 
 function search($idealist) {
   var searchField = $('.locate');
-  
-}
+  $(searchField).change(function() {
+    var search = $(this).val();
+    if(search) {
+      $(idealist).find('h2:contains(' + search + ')').parent().show();
+      $(idealist).find('h2:not(:contains(' + search + '))').parent().hide();
+      $(idealist).find('h3:contains(' + search + ')').parent().show();
+      $(idealist).find('h3:not(:contains(' + search + '))').parent().hide();
+    }
+  })
   $(searchField).on('keyup', function() {
     $(this).change();
     console.log('hello')
-})
+  })
+}
