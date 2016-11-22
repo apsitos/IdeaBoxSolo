@@ -39,6 +39,12 @@ textarea {
   resize: none;
 }
 
+.search{
+  display: block;
+  margin: 15px auto;
+  width: 40%;
+}
+
 ul {
   align-items: center;
   display: flex;
