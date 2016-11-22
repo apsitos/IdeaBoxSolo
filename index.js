@@ -1,6 +1,8 @@
 var $title = $('.title');
 var $body = $('.idea');
-var ideaArray = JSON.parse(localStorage.getItem('newIdea')) || [];
+var $idealist = $('.idea-list')
+var ideaArray = [];
+JSON.parse(localStorage.getItem('newIdea')) || [];
 
 $('document').ready(function(){
   getStorage();
@@ -86,7 +88,7 @@ function CreateIdea($title, $body, id, quality) {
 }
 
 function displayIdea(titleInput, bodyInput, id, quality) {
-  $('.idea-list').prepend(`<li id="${id}" class="new-idea"><h2 class="entered-title" contenteditable="true">${titleInput}</h2>
+  $($idealist).prepend(`<li id="${id}" class="new-idea"><h2 class="entered-title" contenteditable="true">${titleInput}</h2>
     <button type="button" class="delete" name="delete" img src="../images/delete.svg"></button>
     <h3 class="entered-idea" contenteditable="true">${bodyInput}</h3>
     <button type="button" class="upvote" name="upvote" img src="../images/upvote.svg"></button>
@@ -144,3 +146,12 @@ function downVote(quality) {
       return 'swill';
   };
 };
+
+function search($idealist) {
+  var searchField = $('.locate');
+  
+}
+  $(searchField).on('keyup', function() {
+    $(this).change();
+    console.log('hello')
+})
