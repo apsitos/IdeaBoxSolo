@@ -152,14 +152,17 @@ function search($idealist) {
   $(searchField).change(function() {
     var search = $(this).val();
     if(search) {
-      $(idealist).find('h2:contains(' + search + ')').parent().show();
-      $(idealist).find('h2:not(:contains(' + search + '))').parent().hide();
-      $(idealist).find('h3:contains(' + search + ')').parent().show();
-      $(idealist).find('h3:not(:contains(' + search + '))').parent().hide();
+      $($idealist).find('h2:contains(' + search + ')').closest('li').show();
+      $($idealist).find('h2:not(:contains(' + search + '))').closest('li').hide();
+      $($idealist).find('h3:contains(' + search + ')').closest('li').show();
+      $($idealist).find('h3:not(:contains(' + search + '))').closest('li').hide();
+    } else {
+      $($idealist).find('li').show();
     }
   })
   $(searchField).on('keyup', function() {
     $(this).change();
-    console.log('hello')
   })
 }
+
+search($idealist);
